@@ -1377,6 +1377,7 @@ int atcacert_set_comp_cert(const atcacert_def_t* cert_def,
     chain_id = comp_cert[69] & 0x0F;
     sn_source = (comp_cert[70] >> 4) & 0x0F;
 
+    printf("tid %d:%d cid %d:%d source %d:%d", template_id, cert_def->template_id, chain_id, cert_def->chain_id, sn_source, cert_def->sn_source);
     if (template_id != cert_def->template_id || chain_id != cert_def->chain_id || sn_source != cert_def->sn_source)
     {
         return ATCACERT_E_WRONG_CERT_DEF;
