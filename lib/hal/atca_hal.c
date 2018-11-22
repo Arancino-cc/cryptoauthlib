@@ -186,6 +186,9 @@ ATCA_STATUS hal_iface_release(ATCAIfaceType iface_type, void *hal_data)
         break;
     case ATCA_CUSTOM_IFACE:
 #ifdef ATCA_HAL_CUSTOM
+        // Current architecture/API prevents us from accessing the custom
+        // release function. So we just assume success at this point.
+        status = ATCA_SUCCESS;
 #endif
         break;
     default:
@@ -193,4 +196,30 @@ ATCA_STATUS hal_iface_release(ATCAIfaceType iface_type, void *hal_data)
     }
 
     return status;
+}
+
+/** \brief Utility function for hal_wake to check the reply.
+ * \param[in] response       Wake response to be checked.
+ * \param[in] response_size  Size of the response to check.
+ * \return ATCA_SUCCESS for expected wake, ATCA_STATUS_SELFTEST_ERROR if the
+ *         power on self test failed, ATCA_WAKE_FAILED for other failures.
+ */
+ATCA_STATUS hal_check_wake(const uint8_t* response, int response_size)
+{
+    const uint8_t expected_response[4] = { 0x04, 0x11, 0x33, 0x43 };
+    uint8_t selftest_fail_resp[4] = { 0x04, 0x07, 0xC4, 0x40 };
+
+    if (response_size != 4)
+    {
+        return ATCA_WAKE_FAILED;
+    }
+    if (memcmp(response, expected_response, 4) == 0)
+    {
+        return ATCA_SUCCESS;
+    }
+    if (memcmp(response, selftest_fail_resp, 4) == 0)
+    {
+        return ATCA_STATUS_SELFTEST_ERROR;
+    }
+    return ATCA_WAKE_FAILED;
 }

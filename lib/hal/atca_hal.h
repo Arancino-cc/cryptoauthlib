@@ -74,6 +74,8 @@ extern "C" {
 extern ATCA_STATUS hal_iface_init(ATCAIfaceCfg *, ATCAHAL_t* hal);
 extern ATCA_STATUS hal_iface_release(ATCAIfaceType, void* hal_data);
 
+ATCA_STATUS hal_check_wake(const uint8_t* response, int response_size);
+
 // Added one or more of the following defines to your compiler's defines to include add support for
 // that particular interface in your application. For example, if you're writing an I2C to SWI
 // bridge, add both ATCA_HAL_I2C and ATCA_HAL_SWI defines to your compiler settings and then
@@ -159,11 +161,16 @@ void atca_delay_us(uint32_t delay);
 void atca_delay_10us(uint32_t delay);
 void atca_delay_ms(uint32_t delay);
 
-/* Mutex Abstraction */
-ATCA_STATUS hal_os_create_mutex(void** ppMutex, const char* name);
-ATCA_STATUS hal_os_destroy_mutex(void* pMutex);
-ATCA_STATUS hal_os_lock_mutex(void* pMutex);
-ATCA_STATUS hal_os_unlock_mutex(void* pMutex);
+/** \brief Optional hal interfaces */
+ATCA_STATUS hal_create_mutex(void ** ppMutex, char* pName);
+ATCA_STATUS hal_destroy_mutex(void * pMutex);
+ATCA_STATUS hal_lock_mutex(void * pMutex);
+ATCA_STATUS hal_unlock_mutex(void * pMutex);
+
+/** \brief If an RTOS is being use make sure the delay definitions do not conflict */
+#ifdef ATCA_USE_RTOS_TIMER
+void atca_delay_ms_internal(uint32_t delay);
+#endif
 
 #ifdef __cplusplus
 }
