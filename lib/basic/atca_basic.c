@@ -76,7 +76,7 @@ ATCA_STATUS atcab_init(ATCAIfaceCfg *cfg)
         return ATCA_GEN_FAIL;  // Device creation failed
 
     }
-    printf("%s:%d bus:%d slave_address:%d", __FILE__, __LINE__, cfg->atcai2c.bus, cfg->atcai2c.slave_address)
+    printf("%s:%d bus:%d slave_address:%d", __FILE__, __LINE__, cfg->atcai2c.bus, cfg->atcai2c.slave_address);
     if (cfg->devtype == ATECC608A)
     {
         if ((status = atcab_read_bytes_zone(ATCA_ZONE_CONFIG, 0, ATCA_CHIPMODE_OFFSET, &_gDevice->mCommands->clock_divider, 1)) != ATCA_SUCCESS)
