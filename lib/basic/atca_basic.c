@@ -399,6 +399,7 @@ ATCA_STATUS atcab_execute_command(ATCAPacket* packet)
     {
         return status;
     }
+    printf("%s:%d slave_addr:%d\n", __FILE__, __LINE__, ca_iface->mIfaceCFG->atcai2c.slave_address);
     do
     {
         if ((status = atcab_wakeup()) != ATCA_SUCCESS)

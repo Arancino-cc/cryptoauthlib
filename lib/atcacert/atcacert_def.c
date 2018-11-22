@@ -367,7 +367,7 @@ int atcacert_cert_build_process(atcacert_build_state_t*      build_state,
             build_state->max_cert_size,
             data,
             build_state->cert_def->cert_sn_dev_loc.count);
-printf("%d: Read certificate status: %#x\n", __LINE__, ret);
+            printf("%s:%d: Read certificate status: %#x\n", __FILE__, __LINE__, ret);
         if (ret != ATCACERT_E_SUCCESS)
         {
             return ret;
@@ -386,7 +386,7 @@ printf("%d: Read certificate status: %#x\n", __LINE__, ret);
                 build_state->cert,
                 *build_state->cert_size,
                 public_key);
-printf("%d: Read certificate status: %#x\n", __LINE__, ret);
+                printf("%s:%d: Read certificate status: %#x\n", __FILE__, __LINE__, ret);
         }
         else if (build_state->cert_def->public_key_dev_loc.count == 64)
         {
@@ -395,7 +395,7 @@ printf("%d: Read certificate status: %#x\n", __LINE__, ret);
                 build_state->cert,
                 *build_state->cert_size,
                 data);
-printf("%d: Read certificate status: %#x\n", __LINE__, ret);
+                printf("%s:%d: Read certificate status: %#x\n", __FILE__, __LINE__, ret);
         }
         else
         {
@@ -422,7 +422,7 @@ printf("%d: Read certificate status: %#x\n", __LINE__, ret);
             build_state->cert_size,
             build_state->max_cert_size,
             data);
-printf("%d: Read certificate status: %#x\n", __LINE__, ret);
+            printf("%s:%d: Read certificate status: %#x\n", __FILE__, __LINE__, ret);
         if (ret != ATCACERT_E_SUCCESS)
         {
             return ret;
@@ -449,7 +449,7 @@ printf("%d: Read certificate status: %#x\n", __LINE__, ret);
                 *build_state->cert_size,
                 data,
                 build_state->cert_def->cert_elements[i].cert_loc.count);
-printf("%d: Read certificate status: %#x\n", __LINE__, ret);
+                printf("%s:%d: Read certificate status: %#x\n", __FILE__, __LINE__, ret);
             if (ret != ATCACERT_E_SUCCESS)
             {
                 return ret;

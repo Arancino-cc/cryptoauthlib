@@ -63,7 +63,7 @@ int atcacert_read_cert(const atcacert_def_t* cert_def,
 
     if (cert_def == NULL || cert == NULL || cert_size == NULL)
     {
-    printf("%d: Read certificate status: %#x\n", __LINE__, ret);
+        printf("%s:%d: Read certificate status: %#x\n", __FILE__, __LINE__, ret);
         return ATCACERT_E_BAD_PARAMS;
     }
 
@@ -73,14 +73,14 @@ int atcacert_read_cert(const atcacert_def_t* cert_def,
         &device_locs_count,
         sizeof(device_locs) / sizeof(device_locs[0]),
         32);
-    printf("%d: Read certificate status: %#x\n", __LINE__, ret);
+    printf("%s:%d: Read certificate status: %#x\n", __FILE__, __LINE__, ret);
     if (ret != ATCACERT_E_SUCCESS)
     {
         return ret;
     }
 
     ret = atcacert_cert_build_start(&build_state, cert_def, cert, cert_size, ca_public_key);
-    DEBUG_ENGINE("Read certificate status: %#x\n", ret);
+    printf("%s:%d: Read certificate status: %#x\n", __FILE__, __LINE__, ret);
     if (ret != ATCACERT_E_SUCCESS)
     {
         return ret;
@@ -92,7 +92,7 @@ int atcacert_read_cert(const atcacert_def_t* cert_def,
         if (device_locs[i].zone == DEVZONE_DATA && device_locs[i].is_genkey)
         {
             ret = atcab_get_pubkey(device_locs[i].slot, data);
-    DEBUG_ENGINE("Read certificate status: %#x\n", ret);
+            printf("%s:%d: Read certificate status: %#x\n", __FILE__, __LINE__, ret);
             if (ret != ATCA_SUCCESS)
             {
                 return ret;
@@ -106,7 +106,7 @@ int atcacert_read_cert(const atcacert_def_t* cert_def,
             for (block = (uint8_t)start_block; block < end_block; block++)
             {
                 ret = atcab_read_zone(device_locs[i].zone, device_locs[i].slot, block, 0, &data[block * 32 - device_locs[i].offset], 32);
-    DEBUG_ENGINE("Read certificate status: %#x\n", ret);
+                printf("%s:%d: Read certificate status: %#x\n", __FILE__, __LINE__, ret);
                 if (ret != ATCA_SUCCESS)
                 {
                     return ret;
@@ -115,7 +115,7 @@ int atcacert_read_cert(const atcacert_def_t* cert_def,
         }
 
         ret = atcacert_cert_build_process(&build_state, &device_locs[i], data);
-    DEBUG_ENGINE("Read certificate status: %#x\n", ret);
+        printf("%s:%d: Read certificate status: %#x\n", __FILE__, __LINE__, ret);
         if (ret != ATCACERT_E_SUCCESS)
         {
             return ret;
@@ -123,7 +123,7 @@ int atcacert_read_cert(const atcacert_def_t* cert_def,
     }
 
     ret = atcacert_cert_build_finish(&build_state);
-    DEBUG_ENGINE("Read certificate status: %#x\n", ret);
+    printf("%s:%d: Read certificate status: %#x\n", __FILE__, __LINE__, ret);
     if (ret != ATCACERT_E_SUCCESS)
     {
         return ret;

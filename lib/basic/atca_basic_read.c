@@ -66,6 +66,7 @@ ATCA_STATUS atcab_read_zone(uint8_t zone, uint16_t slot, uint8_t block, uint8_t 
 
     do
     {
+        printf("%s:%d zone:%d slot:%d\n", __FILE__, __LINE__, zone, slot);
         // Check the input parameters
         if (data == NULL)
         {
