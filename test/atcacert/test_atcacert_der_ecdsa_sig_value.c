@@ -32,8 +32,8 @@
 
 
 #include "atcacert/atcacert_der.h"
-#include "test/unity.h"
-#include "test/unity_fixture.h"
+#include "unity.h"
+#include "unity_fixture.h"
 
 TEST_GROUP(atcacert_der_enc_ecdsa_sig_value);
 

@@ -33,7 +33,7 @@
 #define ATCA_TLS_TESTS_H_
 
 
-#include "test/unity.h"
+#include "unity.h"
 
 void atcatls_test_runner(ATCAIfaceCfg* pCfg);
 

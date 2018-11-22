@@ -32,7 +32,7 @@
 #include "atca_test.h"
 #include "basic/atca_basic.h"
 #include "host/atca_host.h"
-#include "test/atca_tests.h"
+#include "atca_tests.h"
 
 // These keys are chosen specifically to test the CMAC subkey generation code.
 // When the keys are used to encrypt an all-zero block we need all bit

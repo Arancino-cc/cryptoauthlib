@@ -29,8 +29,8 @@
  */
 
 #include "atcacert/atcacert_host_hw.h"
-#include "test/unity.h"
-#include "test/unity_fixture.h"
+#include "unity.h"
+#include "unity_fixture.h"
 #include "basic/atca_basic.h"
 #include "test_cert_def_0_device.h"
 #include "test_cert_def_1_signer.h"

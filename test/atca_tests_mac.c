@@ -32,7 +32,7 @@
 #include "atca_test.h"
 #include "basic/atca_basic.h"
 #include "host/atca_host.h"
-#include "test/atca_tests.h"
+#include "atca_tests.h"
 
 TEST(atca_cmd_basic_test, mac_key_challenge)
 {

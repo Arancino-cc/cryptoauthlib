@@ -101,7 +101,7 @@ static int build_and_save_cert(
 
 //////////////////////////////////////////////////////////////////////////
 // I2C address for device communication
-#define FACTORY_INIT_I2C    (uint8_t)(0xC0)     // Initial I2C address is set to 0xC0 in the factory
+#define FACTORY_INIT_I2C    (uint8_t)(0xB0)     // Initial I2C address is set to 0xC0 in the factory
 //#define DEVICE_I2C		FACTORY_INIT_I2C	// Device I2C Address.  Initial communication. Before provisioning, use FACTORY_INIT_I2C.
 #define DEVICE_I2C          (uint8_t)(0xB0)     // Device I2C Address.  Initial communication. After provisioning, use actual device address.
 #define D_I2C               DEVICE_I2C          // Device I2C Address.  Program the device to this address when provisioning

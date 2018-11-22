@@ -32,7 +32,7 @@
 #include "atca_test.h"
 #include "basic/atca_basic.h"
 #include "host/atca_host.h"
-#include "test/atca_tests.h"
+#include "atca_tests.h"
 
 static const uint8_t nist_hash_msg1[] = "abc";
 static const uint8_t nist_hash_msg2[] = "abcdbcdecdefdefgefghfghighijhijkijkljklmklmnlmnomnopnopq";

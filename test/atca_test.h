@@ -32,8 +32,8 @@
 #ifndef ATCA_TEST_H_
 #define ATCA_TEST_H_
 
-#include "test/unity.h"
-#include "test/unity_fixture.h"
+#include "unity.h"
+#include "unity_fixture.h"
 #include "cryptoauthlib.h"
 
 #define TEST_ASSERT_SUCCESS(x)  TEST_ASSERT_EQUAL(ATCA_SUCCESS, x)

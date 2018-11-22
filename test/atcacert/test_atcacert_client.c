@@ -31,8 +31,8 @@
 
 
 #include "atcacert/atcacert_client.h"
-#include "test/unity.h"
-#include "test/unity_fixture.h"
+#include "unity.h"
+#include "unity_fixture.h"
 #include <string.h>
 #include "cryptoauthlib.h"
 #include "basic/atca_basic.h"
@@ -187,7 +187,7 @@ TEST(atcacert_client, atcacert_client__init)
 {
     int ret = 0;
 
-    static const uint8_t signer_ca_private_key_slot = 7;
+    static const uint8_t signer_ca_private_key_slot = 0;/*7;*/
     static const uint8_t signer_private_key_slot = 2;
     uint8_t signer_id[2] = { 0xC4, 0x8B };
     const atcacert_tm_utc_t signer_issue_date = {

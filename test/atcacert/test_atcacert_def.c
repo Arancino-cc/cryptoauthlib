@@ -32,8 +32,8 @@
 
 
 #include "atcacert/atcacert_def.h"
-#include "test/unity.h"
-#include "test/unity_fixture.h"
+#include "unity.h"
+#include "unity_fixture.h"
 #include "test_cert_def_0_device.h"
 #include "test_cert_def_1_signer.h"
 #include <string.h>

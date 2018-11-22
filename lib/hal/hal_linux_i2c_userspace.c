@@ -58,7 +58,6 @@ ATCAI2CMaster_t *i2c_hal_data[MAX_I2C_BUSES]; // map logical, 0-based bus number
 int i2c_bus_ref_ct = 0;                       // total in-use count across buses
 #define DEFAULT_I2C_BUS 1
 
-
 /** \brief discover i2c buses available for this hardware
  * this maintains a list of logical to physical bus mappings freeing the application
  * of the a-priori knowledge.This function is not implemented.
@@ -83,7 +82,7 @@ ATCA_STATUS hal_i2c_discover_buses(int i2c_buses[], int max_buses)
 
 ATCA_STATUS hal_i2c_discover_devices(int busNum, ATCAIfaceCfg cfg[], int *found)
 {
-       ATCAIfaceCfg *head = cfg;
+    ATCAIfaceCfg *head = cfg;
     uint8_t slaveAddress = 0x01;
     ATCADevice device;
     ATCAIface discoverIface;
@@ -195,17 +194,15 @@ ATCA_STATUS hal_i2c_discover_devices(int busNum, ATCAIfaceCfg cfg[], int *found)
             // now the device type is known, so update the caller's cfg array element with it
             head->devtype = discoverCfg.devtype;
             head++;
-        }else{
-	    //printf("Cannot wake i2c device status:%d\n",status);
-}
+        }
 
         hal_i2c_idle(discoverIface);
     }
 
     hal_i2c_release(&hal);
 
-    return ATCA_SUCCESS; 
-	return ATCA_UNIMPLEMENTED;
+    return ATCA_SUCCESS;
+    //return ATCA_UNIMPLEMENTED;
 }
 
 /** \brief HAL implementation of I2C init

@@ -27,7 +27,7 @@
  * TERMS.
  */
 
-#include "test/unity_fixture.h"
+#include "unity_fixture.h"
 
 #ifdef __GNUC__
 // Unity macros trigger this warning

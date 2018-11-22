@@ -31,9 +31,9 @@
 #include "cryptoauthlib.h"
 #include "basic/atca_basic.h"
 #include "atcacert/atcacert_host_hw.h"
-#include "tls/atcatls.h"
+#include "atcatls.h"
 #include "tls/atcatls_cfg.h"
-#include "test/tls/atcatls_tests.h"
+#include "atcatls_tests.h"
 
 /*---------------------------------------------------------------------------------------------
    GenKey Command Sent:

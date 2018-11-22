@@ -36,8 +36,8 @@ ATCAIfaceCfg g_iface_config = {
     .iface_type        = ATCA_UNKNOWN_IFACE,
     .devtype           = ATCA_DEV_UNKNOWN,
     .atcai2c           = {
-        .slave_address = 0xC0,
-        .bus           = 2,
+        .slave_address = 0xB0,
+        .bus           = 1,
         .baud          = 400000,
     },
     .wake_delay        = 1500,

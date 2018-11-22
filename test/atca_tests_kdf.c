@@ -32,7 +32,7 @@
 #include "atca_test.h"
 #include "basic/atca_basic.h"
 #include "host/atca_host.h"
-#include "test/atca_tests.h"
+#include "atca_tests.h"
 
 #define AES_CONFIG_ENABLE_BIT_MASK   (uint8_t)0x01
 

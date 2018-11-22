@@ -901,6 +901,7 @@ static ATCA_STATUS set_test_config(ATCADeviceType deviceType)
     gCfg->atcai2c.bus = 1;
     #endif
 
+printf("%s:%d bus:%d addr:%d\n", __FILE__, __LINE__, gCfg->atcai2c.bus, gCfg->atcai2c.slave_address);
     return ATCA_SUCCESS;
 }
 

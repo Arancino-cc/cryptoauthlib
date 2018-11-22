@@ -27,8 +27,8 @@
  * TERMS.
  */
 
-#include "test/unity_fixture.h"
-#include "test/atca_test.h"
+#include "unity_fixture.h"
+#include "atca_test.h"
 #include "jwt/atca_jwt.h"
 
 void atca_jwt_check_payload_start(atca_jwt_t* jwt);
